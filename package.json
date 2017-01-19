@@ -14,7 +14,9 @@
 		"express": "^4.14.0",
 		"querystring": "^0.2.0",
 		"request": "^2.79.0",
-		"wordfilter": "^0.2.6"
+		"wordfilter": "^0.2.6",
+		"sqlite": "^2.2.4",
+		"sqlite3": "^3.1.8"
 	},
 	"devDependencies": {},
 	"repository": {
