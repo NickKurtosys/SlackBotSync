@@ -89,7 +89,7 @@ module.exports = function(controller) {
 attachments: [
         {
             text: 'I have detected an out of sync issue from Slackbot, who is working on it?',
-            fallback: 'You are unable to choose a game',
+            fallback: 'Acknowledge sync issues',
             callback_id: 'sync_ack',
             color: '#3AA3E3',
             attachment_type: 'default',
@@ -106,8 +106,15 @@ attachments: [
     });
     
     
-});
 
+
+  var db = new sqlite3.Database('data/syncissues.sqlite')
+  db.serialize(function() {
+    db.run("INSERT INTO SYNCISSUES VALUES("+message.text.split(":")[2].split("|")[1] + ", NULL)") 
+    
+  }) 
+});
+  
 controller.hears('SYNC ISSUE RESOLVED','bot_message', function(bot, message) {
 
     bot.reply(message,'Thank you to the person who resolved the sync issue.')

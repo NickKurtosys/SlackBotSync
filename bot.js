@@ -56,7 +56,7 @@ if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
   usage_tip();
   process.exit(1);
 }
-
+var sqlite3 = require('sqlite3').verbose();
 var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
 
